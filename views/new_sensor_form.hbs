@@ -1,0 +1,18 @@
+<form action="sensor" method="post" class="sensor-form">
+    <div class="name form-group">
+        <label for="name-input">Name</label>
+        <input type="text" id="name-input" class="form-control sensor-name sensor-input">
+    </div>
+    <div class="description form-group">
+        <label for="description-input">Description</label>
+        <input type="text" class="form-control sensor-input sensor-description" id="description-input">
+    </div>
+    <div class="room form-group">
+        <label for="room-input">Room</label>
+        <select name="room-input" id="room-input" class="form-control sensor-input sensor-room">
+        {{#each rooms}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+        </select>
+    </div>
+</form>
