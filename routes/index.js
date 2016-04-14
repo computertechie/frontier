@@ -7,6 +7,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/room', function (req, res, next) {
+    res.render('new_room_form');
 });
 
 router.post('/room', function (req, res, next) {
@@ -18,6 +19,14 @@ router.get('/sensor', function (req, res, next) {
             rooms: rooms
         });
     })
+});
+
+router.get('/data', function(req, res){
+    database.getSensors({}, "_id name", null).then(function(sensors){
+        res.render('manual_data_form', {
+            sensors: sensors
+        });
+    });
 });
 
 module.exports = router;
